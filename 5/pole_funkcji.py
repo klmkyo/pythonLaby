@@ -42,11 +42,16 @@ def moje_opt_pole_funkcji(f, start, koniec, n = 100):
 
 def pole_funkcji_z_tablicy(start,koniec,n,f):
   diff = (koniec-start)/n
+  
   x = start + diff
   
   s = (f(start) + f(koniec))/2
+  
   # the above line is necessary since the first and last elements only occur once
-  # and the for loop below only adds the elements that occur twice (the ones in the middle)
+  # and the for loop below only adds the elements that occur twice (the ones in the middle),
+  # because x is already incremented by diff in the first iteration, and range(n-1) assures that
+  # the last element is not included
+  
   # (a+b)/2 + (b+c)/2 + (c+d)/2 = b+c + (a/2 + d/2) = b+c + (f(start) + f(koniec))/2
   for _ in range(n-1):
     s += f(x)
@@ -59,5 +64,5 @@ def sinP1(x):
   return math.sin(x)
 
 # print(pole_funkcji(sinP1, 0, math.pi, 50000000))
-print(pole_funkcji_z_tablicy(0, math.pi, 500000, sinP1))
-print(moje_opt_pole_funkcji(sinP1, 0, math.pi, 500000))
+print(pole_funkcji_z_tablicy(0, 2, 4, lambda x: 1))
+print(moje_opt_pole_funkcji(lambda x: 1, 0, 2, 4))
