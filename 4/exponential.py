@@ -17,12 +17,11 @@ def expo(x, epsilon=0.00001):
     suma = 1
     an = 1
     n = 1
-    while True:
+    while abs(an) > epsilon:
         an *= x/n
         suma += an
-        if abs(an) < epsilon:
-            return suma
         n += 1
+    return suma
 
 
 print(expo(1))

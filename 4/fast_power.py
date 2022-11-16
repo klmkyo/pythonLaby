@@ -24,4 +24,4 @@ def altPotega(x, n):
   return w
 
   
-print(altPotega(2, 5))
+print(altPotega(3, 6))
