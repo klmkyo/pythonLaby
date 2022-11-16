@@ -21,8 +21,6 @@ def miejsceZerowe(f, lewo, prawo, eps):
     # gdy miejsce zerowe jest po prawej stronie
     else:
       lewo = srodek
-      
-      
   return srodek
 
 print(miejsceZerowe(sin, -1, 1, 0.0000000001))
