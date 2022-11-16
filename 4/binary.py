@@ -25,5 +25,6 @@ def miejsceZerowe(f, lewo, prawo, eps):
       
   return srodek
 
+print(miejsceZerowe(sin, -1, 1, 0.0000000001))
 print(miejsceZerowe(sin, 1, 4, 0.0000000001))
 print(miejsceZerowe(sin, 4, 7, 0.0000000001))

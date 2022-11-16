@@ -1,6 +1,14 @@
-min = float("-inf")
-max = min
-drugiemax = min
+
+liczba = None
+
+while True:
+  try:
+    liczba = float(input("Podaj liczbę: "))
+    break
+  except ValueError:
+    print("To nie jest liczba!")
+    
+max = drugiemax = liczba
 
 while True:
   
@@ -10,17 +18,18 @@ while True:
     break
   
   try:
-    ocena = float(inp)
+    liczba = float(inp)
     
-    if ocena > max:
+    if liczba > max:
       drugiemax = max
-      max = ocena
-    elif ocena > drugiemax and ocena < max:
-      ocena = drugiemax
-    
+      max = liczba
+    elif liczba > drugiemax and liczba < max:
+      drugiemax = liczba
+      
   except ValueError:
-    print("Podano nieprawidłową wartość")
+    print("To nie jest liczba!")
 
 print()
-if(drugiemax != min): print(f"Druga największa: {drugiemax}")
-if(max != min): print(f"Największa: {max}")
+
+if(drugiemax != max): print(f"Druga największa: {drugiemax}")
+print(f"Największa: {max}")

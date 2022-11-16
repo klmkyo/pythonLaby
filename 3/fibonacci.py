@@ -19,7 +19,7 @@ def memo_fib(n: int):
   else:
     return(memo_fib(n-1) + memo_fib(n-2))
 
-fibonacci(1_000_000)
+fibonacci(100000)
 
 # for i in range(0, 1000):
 #   memo_fib(i)

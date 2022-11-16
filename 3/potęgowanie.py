@@ -12,7 +12,5 @@ def potega(x, n):
   else:
     return wynik_polowy * wynik_polowy * x
   
-def potega_bin(x, n):
-  
 
-print(potega(8, 11))    
+print(potega(2, 8))

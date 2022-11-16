@@ -26,7 +26,7 @@ a = getNonZero("Podaj a: ")
 b = getNumber("Podaj b: ")
 c = getNumber("Podaj c: ")
   
-delta = b*b - 4*a*c;
+delta = b*b - 4*a*c
 
 if(delta < 0):
   print("Brak rozwiązań rzeczywistych")

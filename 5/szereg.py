@@ -14,11 +14,10 @@ def ddd(x, epsilon=0.000001):
     suma = 1
     an = 1
     n = 0
-    while True:
+    while abs(an) > epsilon:
         an *= (-x * (2 * n-1)) / (2 * (n + 1))
         suma += an
         n += 1
-        if abs(an) < epsilon:
-            return suma
+    return suma
  
 print(ddd(0.999))
