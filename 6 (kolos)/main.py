@@ -31,4 +31,4 @@ def miejsce_zerowe(start, lista_a: list[float], epsilon=0.0001):
 
     return xn 
 
-print(miejsce_zerowe(-2, [1,2,3,4]))
+print(miejsce_zerowe(-2, [1,-2,-3]))
