@@ -92,7 +92,7 @@ f"Suwnica została przesunięta do pozycji x: {self.x}, y: {self.y}, z: {self.z}
             raise TrzymaJużKontener
         
         # sprawdź czy jest kontener pod suwnicą
-        if self.pole_kontenerowe[self.y][self.x] < self.z - 1:
+        if self.z - 1 > self.pole_kontenerowe[self.y][self.x]:
             raise SuwnicaJestZaWysoko
         
         self.pole_kontenerowe[self.y][self.x] -= 1
@@ -105,7 +105,7 @@ f"Suwnica została przesunięta do pozycji x: {self.x}, y: {self.y}, z: {self.z}
             raise NieTrzymaKonteneru
         
         # sprawdź czy wysokość jest odpowiednia
-        if self.pole_kontenerowe[self.y][self.x] < self.z - 2:
+        if self.z - 2 > self.pole_kontenerowe[self.y][self.x]:
             raise SuwnicaJestZaWysoko(
                 "Próbowano upuścić kontener z wysokości!")
             
@@ -129,7 +129,10 @@ f"Suwnica została przesunięta do pozycji x: {self.x}, y: {self.y}, z: {self.z}
 
     def opusc(self, o_ile):
         docelowe_z = self.z - o_ile
-        if not self.pole_puste(self.x, self.y, docelowe_z):
+        
+        bezpieczne_z = docelowe_z + 1 if self.trzyma_kontener else docelowe_z
+        
+        if not self.pole_puste(self.x, self.y, bezpieczne_z):
             raise ValueError("Na podanym poziomie znajduje się kontener!")
 
         while self.z != docelowe_z:
