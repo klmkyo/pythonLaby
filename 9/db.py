@@ -4,7 +4,7 @@ import struct
 import os
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
-# <name (25 chars)> <surname (34 chars)> <height [cm] (uint_8 1B)> <weight [kg] (float 4B)>
+# <name (25 chars)> <surname (34 chars)> <height [cm] (uint8 1B)> <weight [kg] (float 4B)>
 class Person:
     name: str
     surname: str
