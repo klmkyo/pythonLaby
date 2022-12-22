@@ -1,8 +1,8 @@
 import struct
 
 # change directory to script location
-# import os
-# os.chdir(os.path.dirname(os.path.abspath(__file__)))
+import os
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 # <name (25 chars)> <surname (34 chars)> <height [cm] (uint_8 1B)> <weight [kg] (float 4B)>
 class Person:
@@ -30,7 +30,7 @@ class Person:
     @staticmethod
     def from_file(file):
         name, surname, height, weight = struct.unpack("25s 34s B f", file.read(64))
-        return Person(name.decode().rstrip("\0"), surname.decode().rstrip("\0"), height, weight)
+        return Person(name.decode().rstrip("\0"), surname.decode().rstrip("\0"), height, round(weight, 1))
 
 ### Manualne tworzenie osoby
 
@@ -49,9 +49,9 @@ class Person:
 
 from faker import Faker
 fake = Faker(locale="pl_PL")
-with open("database.bin", "ab") as f:
+with open("database.bin", "wb") as f:
     for i in range(1000):
-        p = Person(fake.first_name(), fake.last_name(), fake.random_int(100, 220), fake.random_int(40, 120))
+        p = Person(fake.first_name(), fake.last_name(), fake.random_int(100, 220), fake.pyfloat(min_value=40, max_value=120, right_digits=1))
         p.write(f)
         
 # Read all people from file
